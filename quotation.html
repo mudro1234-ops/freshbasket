@@ -20,69 +20,122 @@
   </header>
 
   <main class="quote">
-    <!-- View switch: pure HTML + CSS. These two radio buttons control what the page shows. -->
-    <input type="radio" name="view" id="v-customer" class="vswitch" checked>
-    <input type="radio" name="view" id="v-seller" class="vswitch">
+    <h1>Quotation and order</h1>
+    <p class="sub">Quote <strong id="qn"></strong> &middot; <span id="qd"></span></p>
 
-    <h1>Quotation</h1>
-    <p class="sub">FreshBasket Grocery Shop</p>
-
-    <div class="toggle" role="group" aria-label="Choose view">
-      <label for="v-customer">Customer view</label>
-      <label for="v-seller">Seller view</label>
-    </div>
-
-    <div class="card qhead">
-      <div><strong>Quote number</strong><br>#FB-2026-0412</div>
-      <div><strong>Date</strong><br>15 October 2026</div>
-      <div><strong>Prepared for</strong><br>Customer</div>
-    </div>
-
-    <div class="card">
-      <div class="table-wrap">
-        <table>
-          <caption class="sub">Itemised quotation</caption>
-          <thead>
-            <tr>
-              <th scope="col">Item #</th>
-              <th scope="col">Description</th>
-              <th scope="col">Unit</th>
-              <th scope="col" class="right">Quantity</th>
-              <th scope="col" class="right">Unit Price</th>
-              <th scope="col" class="right">Line Total</th>
-              <th scope="col" class="right seller-only">Line Cost</th>
-              <th scope="col" class="right seller-only">Line Profit</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>1</td><td>Mealie-meal</td><td>10kg</td><td class="right">2</td><td class="right">$7.00</td><td class="right">$14.00</td><td class="right seller-only">$11.60</td><td class="right seller-only">$2.40</td></tr>
-            <tr><td>2</td><td>Cooking oil</td><td>2L</td><td class="right">1</td><td class="right">$4.50</td><td class="right">$4.50</td><td class="right seller-only">$3.60</td><td class="right seller-only">$0.90</td></tr>
-            <tr><td>3</td><td>Sugar</td><td>2kg</td><td class="right">3</td><td class="right">$2.50</td><td class="right">$7.50</td><td class="right seller-only">$5.70</td><td class="right seller-only">$1.80</td></tr>
-            <tr><td>4</td><td>Rice</td><td>2kg</td><td class="right">2</td><td class="right">$3.00</td><td class="right">$6.00</td><td class="right seller-only">$4.60</td><td class="right seller-only">$1.40</td></tr>
-            <tr><td>5</td><td>Potatoes</td><td>1kg</td><td class="right">5</td><td class="right">$1.20</td><td class="right">$6.00</td><td class="right seller-only">$4.00</td><td class="right seller-only">$2.00</td></tr>
-          </tbody>
-          <tfoot>
-            <tr class="total"><td colspan="5" class="right">GRAND TOTAL</td><td class="right">$38.00</td><td class="right seller-only">$29.50</td><td class="right seller-only">$8.50</td></tr>
-          </tfoot>
-        </table>
+    <form id="order">
+      <div class="card">
+        <h2>1. Your details</h2>
+        <div class="fields">
+          <div><label for="name">Name</label><input id="name" type="text" required></div>
+          <div><label for="cell">Cell number</label><input id="cell" type="tel" pattern="[0-9+ ]{9,15}" title="Digits only, for example 0771234567" required></div>
+          <div class="wide"><label for="addr">Address</label><textarea id="addr" rows="2" required></textarea></div>
+        </div>
       </div>
-    </div>
 
-    <!-- Customer side only -->
-    <p class="customer-block">To place this order, visit the shop or use the <a href="contact.html">Contact page</a>.</p>
-
-    <!-- Seller side only -->
-    <div class="card qhead seller-block">
-      <div><strong>Total cost</strong><br>$29.50</div>
-      <div><strong>Total profit</strong><br>$8.50</div>
-      <div><strong>Profit margin</strong><br>22.4%</div>
-    </div>
-    <p class="seller-block sub">Seller view: internal only. Cost figures are sample values for this assignment and are never shown to customers.</p>
+      <div class="card">
+        <h2>2. Choose your items</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Item</th><th>Unit</th><th class="right">Price</th><th class="right">Qty</th><th class="right">Line total</th></tr>
+            </thead>
+            <tbody>
+              <tr data-name="Mealie-meal" data-unit="10kg" data-price="7.00"><td>Mealie-meal</td><td>10kg</td><td class="right">$7.00</td><td class="right"><input type="number" min="0" max="99" value="0" aria-label="Quantity of Mealie-meal 10kg"></td><td class="right line">$0.00</td></tr>
+              <tr data-name="Cooking oil" data-unit="2L" data-price="4.50"><td>Cooking oil</td><td>2L</td><td class="right">$4.50</td><td class="right"><input type="number" min="0" max="99" value="0" aria-label="Quantity of Cooking oil 2L"></td><td class="right line">$0.00</td></tr>
+              <tr data-name="Sugar" data-unit="2kg" data-price="2.50"><td>Sugar</td><td>2kg</td><td class="right">$2.50</td><td class="right"><input type="number" min="0" max="99" value="0" aria-label="Quantity of Sugar 2kg"></td><td class="right line">$0.00</td></tr>
+              <tr data-name="Rice" data-unit="2kg" data-price="3.00"><td>Rice</td><td>2kg</td><td class="right">$3.00</td><td class="right"><input type="number" min="0" max="99" value="0" aria-label="Quantity of Rice 2kg"></td><td class="right line">$0.00</td></tr>
+              <tr data-name="Potatoes" data-unit="1kg" data-price="1.20"><td>Potatoes</td><td>1kg</td><td class="right">$1.20</td><td class="right"><input type="number" min="0" max="99" value="0" aria-label="Quantity of Potatoes 1kg"></td><td class="right line">$0.00</td></tr>
+            </tbody>
+            <tfoot>
+              <tr class="total"><td colspan="4" class="right">GRAND TOTAL</td><td class="right" id="total">$0.00</td></tr>
+            </tfoot>
+          </table>
+        </div>
+        <p class="error" id="err" hidden>Please choose at least one item.</p>
+        <p><button class="btn" type="submit">Place order</button></p>
+      </div>
+    </form>
 
     <p class="notice" role="note"><strong>Prices may change without prior notice.</strong></p>
+
+    <dialog id="confirm" aria-labelledby="ct">
+      <h2 id="ct">Confirm your order</h2>
+      <p id="cd" class="details"></p>
+      <ul class="receipt" id="cl"></ul>
+      <p><strong>Total: <span id="ctot"></span></strong></p>
+      <p class="sub">Pressing Yes opens WhatsApp with your order ready to send.</p>
+      <div class="actions">
+        <button type="button" class="btn" id="send">Yes, send on WhatsApp</button>
+        <button type="button" class="btn outline" id="cancel">Cancel</button>
+      </div>
+    </dialog>
   </main>
 
-  <footer>&copy; 2026 FreshBasket Grocery Shop &middot; Quotation #FB-2026-0412</footer>
+  <footer>&copy; 2026 FreshBasket Grocery Shop</footer>
 
+  <script>
+    // Small script: reads the form, adds up the total, shows the confirm box, opens WhatsApp.
+    // Optional: put the shop's WhatsApp number here, country code first, no plus (e.g. "263771234567").
+    var SHOP = "";
+
+    var form = document.getElementById("order");
+    var rows = [].slice.call(document.querySelectorAll("tbody tr"));
+    var dlg = document.getElementById("confirm");
+    var d = new Date();
+    var quote = "FB-" + d.toISOString().slice(0, 10).replace(/-/g, "") + "-" + ("00" + Math.floor(Math.random() * 1000)).slice(-3);
+    document.getElementById("qn").textContent = "#" + quote;
+    document.getElementById("qd").textContent = d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+
+    function money(n) { return "$" + n.toFixed(2); }
+
+    function chosen() {
+      var items = [], total = 0;
+      rows.forEach(function (r) {
+        var q = parseInt(r.querySelector("input").value, 10) || 0;
+        var line = q * parseFloat(r.dataset.price);
+        r.querySelector(".line").textContent = money(line);
+        if (q > 0) items.push({ text: q + " x " + r.dataset.name + " " + r.dataset.unit, line: line });
+        total += line;
+      });
+      document.getElementById("total").textContent = money(total);
+      return { items: items, total: total };
+    }
+
+    function details() {
+      return "Name: " + form.name.value.trim() + "\nCell: " + form.cell.value.trim() + "\nAddress: " + form.addr.value.trim();
+    }
+
+    form.addEventListener("input", chosen);
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var o = chosen();
+      document.getElementById("err").hidden = o.items.length > 0;
+      if (!o.items.length) return;
+      document.getElementById("cd").textContent = details();
+      var list = document.getElementById("cl");
+      list.textContent = "";
+      o.items.forEach(function (it) {
+        var li = document.createElement("li");
+        var a = document.createElement("span"), b = document.createElement("span");
+        a.textContent = it.text; b.textContent = money(it.line);
+        li.appendChild(a); li.appendChild(b); list.appendChild(li);
+      });
+      document.getElementById("ctot").textContent = money(o.total);
+      dlg.showModal();
+    });
+
+    document.getElementById("cancel").onclick = function () { dlg.close(); };
+
+    document.getElementById("send").onclick = function () {
+      var o = chosen();
+      var msg = "Hello FreshBasket, I would like to place an order.\nQuotation: #" + quote + "\n" + details() +
+        "\n\nItems:\n" + o.items.map(function (i) { return i.text + " = " + money(i.line); }).join("\n") +
+        "\n\nTotal: " + money(o.total);
+      window.open("https://wa.me/" + SHOP + "?text=" + encodeURIComponent(msg), "_blank");
+      dlg.close();
+    };
+  </script>
 </body>
 </html>
