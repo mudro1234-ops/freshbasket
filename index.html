@@ -1,65 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FreshBasket Grocery Shop — fresh groceries at affordable prices every day.">
-  <title>FreshBasket Grocery Shop | Home</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="./style.css" />
+  <title>E STORE</title>
 </head>
 <body>
-  <header>
-    <nav aria-label="Main navigation">
-      <h2>FreshBasket Grocery Shop</h2>
+
+  <!-- HEADER -->
+  <header class="header">
+    <nav>
+      <!-- ADD PIC HERE: image/shopping logo.png -->
+      <img src="image/shopping logo.png" onerror="this.onerror=null;this.src='image/shopping logo.svg'" class="logob" alt="E Store logo">
       <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="Products.html">Products</a></li>
-        <li><a href="quotation.html">Quotation</a></li>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#about">ABOUT US</a></li>
+        <li><a href="Products.html">PRODUCTS</a></li>
+        <li><a href="quotation.html">QUOTATION</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+        <li><a href="cart.html">CART (<span id="cartCount">0</span>)</a></li>
+        <li><a href="login.html" id="authLink">LOGIN</a></li>
       </ul>
     </nav>
+
+    <!-- Intro -->
+    <div class="intro">
+      <h1>TRY OUT THESE LEATHER PRODUCTS</h1>
+      <h2>
+        Up to<br />
+        <span class="dis">30% Discount</span><br />
+        on This <br />
+        New Year Season
+      </h2>
+      <h3>From 1st Jan to 31st Jan</h3>
+      <a href="Products.html" class="btn">SHOP NOW</a>
+    </div>
   </header>
 
-  <main>
-    <section class="banner">
-      <h1>Welcome to FreshBasket Grocery Shop</h1>
-      <p class="slogan">Fresh Groceries, Affordable Prices, Every Day!</p>
-      <p>Your trusted destination for quality everyday groceries at affordable prices.</p>
-      <a class="shop-btn" href="Products.html">Shop Now</a>
-    </section>
-
-    <section class="categories" aria-labelledby="categories-title">
-      <h2 id="categories-title">Shop by Category</h2>
-      <div class="category-container">
-        <article class="category-card">
-          <h3>Staple Foods</h3>
-          <p>Mealie-meal, rice and sugar for everyday meals.</p>
-        </article>
-        <article class="category-card">
-          <h3>Cooking Essentials</h3>
-          <p>Cooking oil and other kitchen essentials.</p>
-        </article>
-        <article class="category-card">
-          <h3>Fresh Produce</h3>
-          <p>Fresh potatoes and other produce.</p>
-        </article>
+  <section class="section benefits">
+    <div class="benefit-center box">
+      <div class="benefit">
+        <span class="icon"><i class="bx bx-purchase-tag"></i></span>
+        <h4>Free Shipping</h4>
+        <span class="text">Capped at $16 per order</span>
       </div>
-    </section>
+      <div class="benefit">
+        <span class="icon"><i class="bx bx-book-reader"></i></span>
+        <h4>10-Day Returns</h4>
+        <span class="text">Shop without any fear</span>
+      </div>
+      <div class="benefit">
+        <span class="icon"><i class="bx bx-headphone"></i></span>
+        <h4>24/7 Support</h4>
+        <span class="text">We are always there to help you</span>
+      </div>
+    </div>
+  </section>
 
-    <section class="featured-products" aria-labelledby="featured-title">
-      <h2 id="featured-title">Popular Products</h2>
+  <!-- New Arrivals -->
+  <section class="section" id="new">
+    <div class="h"><h1><span>New</span> Arrivals</h1></div>
+    <div class="ac-center box">
+      <div class="ac">
+        <div class="img-cover"><!-- ADD PIC HERE: image/jackets.jpg -->
+        <img src="image/jackets.jpg" onerror="this.onerror=null;this.src='image/jackets.svg'" alt="+Jackets" /></div>
+        <p>+Jackets</p>
+        <div class="rating"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i></div>
+        <div class="price">₹ 5000</div>
+        <button class="add" data-id="jackets" data-name="JACKETS" data-price="5000" data-img="image/jackets">Add to cart</button>
+      </div>
+      <div class="ac">
+        <div class="img-cover"><!-- ADD PIC HERE: image/WHBag.jpg -->
+        <img src="image/WHBag.jpg" onerror="this.onerror=null;this.src='image/WHBag.svg'" alt="Women Hand Bag" /></div>
+        <p>Women Hand Bag</p>
+        <div class="rating"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bx-star"></i></div>
+        <div class="price">₹ 3000</div>
+        <button class="add" data-id="WHBag" data-name="WOMEN HAND BAG" data-price="3000" data-img="image/WHBag">Add to cart</button>
+      </div>
+      <div class="ac">
+        <div class="img-cover"><!-- ADD PIC HERE: image/garic fox.jpg -->
+        <img src="image/garic fox.jpg" onerror="this.onerror=null;this.src='image/garic fox.svg'" alt="Arctic fox bag" /></div>
+        <p>Arctic fox bag</p>
+        <div class="rating"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bx-star"></i></div>
+        <div class="price">₹ 2000</div>
+        <button class="add" data-id="garic-fox" data-name="ARCTIC FOX BAG" data-price="2000" data-img="image/garic fox">Add to cart</button>
+      </div>
+      <div class="ac">
+        <div class="img-cover"><!-- ADD PIC HERE: image/headphone.jpg -->
+        <img src="image/headphone.jpg" onerror="this.onerror=null;this.src='image/headphone.svg'" alt="Boat Headphones" /></div>
+        <p>Boat Headphones</p>
+        <div class="rating"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bx-star"></i></div>
+        <div class="price">₹ 1500</div>
+        <button class="add" data-id="headphone" data-name="BOAT HEADPHONES" data-price="1500" data-img="image/headphone">Add to cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop By Category -->
+  <section class="section">
+    <div class="h"><h1><span>Shop By</span> Categories</h1></div>
+    <div class="ab box">
+      <div class="item item-1"><!-- ADD PIC HERE: image/cloth.jpg -->
+        <img src="image/cloth.jpg" onerror="this.onerror=null;this.src='image/cloth.svg'" alt="Clothes" /></div>
+      <div class="item item-2"><!-- ADD PIC HERE: image/trouser.jpg -->
+        <img src="image/trouser.jpg" onerror="this.onerror=null;this.src='image/trouser.svg'" alt="Trousers" /></div>
+      <div class="item item-3"><!-- ADD PIC HERE: image/laptop.jpg -->
+        <img src="image/laptop.jpg" onerror="this.onerror=null;this.src='image/laptop.svg'" alt="Laptops" /></div>
+      <div class="item item-4"><!-- ADD PIC HERE: image/home.jpg -->
+        <img src="image/home.jpg" onerror="this.onerror=null;this.src='image/home.svg'" alt="Home" /></div>
+    </div>
+  </section>
+
+  <!-- Popular Products -->
+  <section class="section">
+    <div class="h"><h1>Popular <span>Products</span></h1></div>
+    <div class="ac-center box">
+      <div class="ac">
+        <div class="img-cover"><!-- ADD PIC HERE: image/hoddy.jpg -->
+        <img src="image/hoddy.jpg" onerror="this.onerror=null;this.src='image/hoddy.svg'" alt="jackets" /></div>
+        <p>jackets</p>
+        <div class="rating"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bx-star"></i></div>
+        <div class="price">₹ 8500</div>
+        <button class="add" data-id="hoddy" data-name="JACKETS" data-price="8500" data-img="image/hoddy">Add to cart</button>
+      </div>
+      <div class="ac">
+        <div class="img-cover"><!-- ADD PIC HERE: image/t shirt.jpg -->
+        <img src="image/t shirt.jpg" onerror="this.onerror=null;this.src='image/t shirt.svg'" alt="T-shirt" /></div>
+        <p>T-shirt</p>
+        <div class="rating"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bx-star"></i></div>
+        <div class="price">₹ 5000</div>
+        <button class="add" data-id="t-shirt" data-name="T-SHIRT" data-price="5000" data-img="image/t shirt">Add to cart</button>
+      </div>
+      <div class="ac">
+        <div class="img-cover"><!-- ADD PIC HERE: image/milton.jpg -->
+        <img src="image/milton.jpg" onerror="this.onerror=null;this.src='image/milton.svg'" alt="Milton bottle" /></div>
+        <p>Milton bottle</p>
+        <div class="rating"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bx-star"></i></div>
+        <div class="price">₹ 1200</div>
+        <button class="add" data-id="milton" data-name="MILTON BOTTLE" data-price="1200" data-img="image/milton">Add to cart</button>
+      </div>
+      <div class="ac">
+        <div class="img-cover"><!-- ADD PIC HERE: image/smartphone.jpg -->
+        <img src="image/smartphone.jpg" onerror="this.onerror=null;this.src='image/smartphone.svg'" alt="Smartphones" /></div>
+        <p>Smartphones</p>
+        <div class="rating"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bx-star"></i></div>
+        <div class="price">₹ 12,000</div>
+        <button class="add" data-id="smartphone" data-name="SMARTPHONES" data-price="12000" data-img="image/smartphone">Add to cart</button>
+      </div>
+      <div class="ac">
+        <div class="img-cover"><!-- ADD PIC HERE: image/shoes.jpg -->
+        <img src="image/shoes.jpg" onerror="this.onerror=null;this.src='image/shoes.svg'" alt="Shoes" /></div>
+        <p>Shoes</p>
+        <div class="rating"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bx-star"></i></div>
+        <div class="price">₹ 3200</div>
+        <button class="add" data-id="shoes" data-name="SHOES" data-price="3200" data-img="image/shoes">Add to cart</button>
+      </div>
+      <div class="ac">
+        <div class="img-cover"><!-- ADD PIC HERE: image/wallet.jpg -->
+        <img src="image/wallet.jpg" onerror="this.onerror=null;this.src='image/wallet.svg'" alt="women hand bags" /></div>
+        <p>women hand bags</p>
+        <div class="rating"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bx-star"></i></div>
+        <div class="price">₹ 1600</div>
+        <button class="add" data-id="wallet" data-name="WOMEN HAND BAGS" data-price="1600" data-img="image/wallet">Add to cart</button>
+      </div>
+      <div class="ac">
+        <div class="img-cover"><!-- ADD PIC HERE: image/women sandal.jpg -->
+        <img src="image/women sandal.jpg" onerror="this.onerror=null;this.src='image/women sandal.svg'" alt="sandals" /></div>
+        <p>sandals</p>
+        <div class="rating"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bx-star"></i></div>
+        <div class="price">₹ 600</div>
+        <button class="add" data-id="women-sandal" data-name="SANDALS" data-price="600" data-img="image/women sandal">Add to cart</button>
+      </div>
+      <div class="ac">
+        <div class="img-cover"><!-- ADD PIC HERE: image/belt.jpg -->
+        <img src="image/belt.jpg" onerror="this.onerror=null;this.src='image/belt.svg'" alt="Belt" /></div>
+        <p>Belt</p>
+        <div class="rating"><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bx-star"></i></div>
+        <div class="price">₹ 500</div>
+        <button class="add" data-id="belt" data-name="BELT" data-price="500" data-img="image/belt">Add to cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section about" id="about">
+    <div class="h"><h1>About <span>Us</span></h1></div>
+    <p class="box about-text">E STORE is a small online shop for leather goods, clothing, bags, shoes and gadgets. We keep prices fair, ship fast and take returns within 10 days.</p>
+  </section>
+
+  <!--footer-->
+  <section id="footer">
+    <div class="foot">
       <ul>
-        <li>Mealie-meal 10kg — $7.00</li>
-        <li>Cooking oil 2L — $4.50</li>
-        <li>Sugar 2kg — $2.50</li>
-        <li>Rice 2kg — $3.00</li>
-        <li>Potatoes 1kg — $1.20</li>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#about">ABOUT US</a></li>
+        <li><a href="Products.html">PRODUCTS</a></li>
+        <li><a href="quotation.html">QUOTATION</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
       </ul>
-      <a href="Products.html">View All Products</a>
-    </section>
-  </main>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-behance"></i></a>
+        <a href="#"><i class="fab fa-dribbble"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2026 FreshBasket Grocery Shop. All rights reserved.</p>
-  </footer>
+  <div id="toast">Added to cart</div>
+
+  <script src="cart.js"></script>
+  <script>
+    function refresh() { document.getElementById('cartCount').textContent = Cart.count(); }
+    refresh();
+    var toast = document.getElementById('toast');
+    document.querySelectorAll('.add').forEach(function (b) {
+      b.addEventListener('click', function () {
+        Cart.add({ id: b.dataset.id, name: b.dataset.name, code: 'E STORE', price: Number(b.dataset.price), img: b.dataset.img });
+        refresh();
+        toast.textContent = b.dataset.name + ' added to cart';
+        toast.classList.add('show');
+        setTimeout(function () { toast.classList.remove('show'); }, 1400);
+      });
+    });
+    var user = null;
+    try { user = localStorage.getItem('shopUser') || sessionStorage.getItem('shopUser'); } catch (e) {}
+    if (user) {
+      var a = document.getElementById('authLink');
+      a.textContent = 'LOGOUT';
+      a.href = '#';
+      a.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        try { localStorage.removeItem('shopUser'); sessionStorage.removeItem('shopUser'); } catch (e) {}
+        location.href = 'login.html';
+      });
+    }
+  </script>
 </body>
 </html>
