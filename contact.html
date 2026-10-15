@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact FreshBasket Grocery Shop: address, phone, opening hours, message form and how to order.">
+  <title>Contact | FreshBasket Grocery Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css">
+</head>
+
+<!--
+  Moyo's page: contact.html (HTML + CSS only, no JavaScript)
+  PLACEHOLDER DETAILS - replace with the shop's real details:
+  Phone +263 77 123 4567 | Email hello@freshbasket.example
+  Address 123 Main Street, Gweru | Hours: see the table below
+-->
+<body>
+
+  <header>
+    <a class="logo" href="index.html">Fresh<span>Basket</span></a>
+    <nav aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="Products.html">Products</a>
+      <a href="quotation.html">Quotation</a>
+      <a href="prices.html">Prices</a>
+      <a href="contact.html" class="active" aria-current="page">Contact</a>
+    </nav>
+  </header>
+
+  <main class="contact-page">
+
+    <!-- ============ HERO ============ -->
+    <section class="c-hero" aria-labelledby="contact-title">
+      <div class="c-hero-text">
+        <h1 id="contact-title">Contact FreshBasket Grocery Shop</h1>
+        <p class="lead">Questions about prices, stock or your order? Call us, send a WhatsApp, visit the shop or use the form below.</p>
+        <div class="quick-actions">
+          <a class="btn" href="tel:+263771234567">📞 Call us</a>
+          <a class="btn outline" href="https://wa.me/263771234567?text=Hello%20FreshBasket%2C%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a class="btn outline" href="#order-steps">🛒 How to order</a>
+        </div>
+      </div>
+
+      <!-- Decorative 3D cube (pure CSS) -->
+      <div class="scene" aria-hidden="true">
+        <div class="cube">
+          <div class="face f1">🌽</div>
+          <div class="face f2">🥛</div>
+          <div class="face f3">🍞</div>
+          <div class="face f4">🥔</div>
+          <div class="face f5">🍅</div>
+          <div class="face f6">🥚</div>
+        </div>
+        <div class="cube-shadow"></div>
+      </div>
+    </section>
+
+    <!-- ============ ADDRESS, PHONE, HOURS ============ -->
+    <section aria-labelledby="reach-title">
+      <h2 id="reach-title">Visit or reach us</h2>
+      <p class="sub">Tap a detail to call, message or get directions.</p>
+
+      <div class="info-grid">
+
+        <article class="info-card">
+          <span class="ic" aria-hidden="true">📍</span>
+          <h3>Address</h3>
+          <address>
+            FreshBasket Grocery Shop<br>
+            123 Main Street<br>
+            Gweru, Zimbabwe
+          </address>
+          <a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=FreshBasket%20Grocery%20Shop%2C%20123%20Main%20Street%2C%20Gweru%2C%20Zimbabwe" target="_blank" rel="noopener">🧭 Get directions</a>
+        </article>
+
+        <article class="info-card">
+          <span class="ic" aria-hidden="true">📞</span>
+          <h3>Phone and email</h3>
+          <ul class="contact-list">
+            <li><span>Phone</span> <a href="tel:+263771234567">+263 77 123 4567</a></li>
+            <li><span>WhatsApp</span> <a href="https://wa.me/263771234567" target="_blank" rel="noopener">Chat with us</a></li>
+            <li><span>Email</span> <a href="mailto:hello@freshbasket.example">hello@freshbasket.example</a></li>
+          </ul>
+          <a class="chip" href="tel:+263771234567">📞 Call now</a>
+        </article>
+
+        <article class="info-card">
+          <span class="ic" aria-hidden="true">🕒</span>
+          <h3>Operating hours</h3>
+          <table class="hours">
+            <caption class="sr-only">Weekly opening hours</caption>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>08:00 – 18:00</td></tr>
+              <tr><th scope="row">Tuesday</th><td>08:00 – 18:00</td></tr>
+              <tr><th scope="row">Wednesday</th><td>08:00 – 18:00</td></tr>
+              <tr><th scope="row">Thursday</th><td>08:00 – 18:00</td></tr>
+              <tr><th scope="row">Friday</th><td>08:00 – 18:00</td></tr>
+              <tr><th scope="row">Saturday</th><td>08:00 – 16:00</td></tr>
+              <tr><th scope="row">Sunday</th><td>09:00 – 13:00</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ ORDERING STEPS ============ -->
+    <section id="order-steps" aria-labelledby="order-title">
+      <h2 id="order-title">How to order</h2>
+      <p class="sub">Four simple steps from our shelves to your kitchen.</p>
+
+      <ol class="order-steps">
+        <li class="order-step">
+          <span class="coin" aria-hidden="true">1</span>
+          <h3>Browse our products</h3>
+          <p>See what is in stock, with the unit size and price of every item.</p>
+          <a href="Products.html">View products →</a>
+        </li>
+        <li class="order-step">
+          <span class="coin" aria-hidden="true">2</span>
+          <h3>Get your quotation</h3>
+          <p>Choose your items and quantities to see an itemised quotation with the grand total.</p>
+          <a href="quotation.html">Open quotation →</a>
+        </li>
+        <li class="order-step">
+          <span class="coin" aria-hidden="true">3</span>
+          <h3>Confirm with us</h3>
+          <p>Send your list by WhatsApp, phone or the form below. We confirm stock and your final total.</p>
+          <a href="#contact-form">Send your order →</a>
+        </li>
+        <li class="order-step">
+          <span class="coin" aria-hidden="true">4</span>
+          <h3>Collect or deliver</h3>
+          <p>Pick up your groceries at the shop during opening hours, or ask us about delivery to your area.</p>
+          <a href="tel:+263771234567">Ask about delivery →</a>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ CONTACT FORM ============ -->
+    <section id="contact-form" aria-labelledby="form-title">
+      <h2 id="form-title">Send us a message</h2>
+      <p class="sub">Fill in the form. Your email app will open with the message ready to send.</p>
+
+      <div class="form-layout">
+
+        <form class="form-card" action="mailto:hello@freshbasket.example" method="post" enctype="text/plain">
+          <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+          <input id="name" name="Name" type="text" autocomplete="name" required minlength="2">
+
+          <div class="field-row">
+            <div>
+              <label for="phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+              <input id="phone" name="Phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+263 77 123 4567" required pattern="\+?[0-9 \-]{9,16}" title="Enter a phone number, e.g. +263 77 123 4567 or 077 123 4567">
+            </div>
+            <div>
+              <label for="email">Email <span class="optional">(optional)</span></label>
+              <input id="email" name="Email" type="email" autocomplete="email">
+            </div>
+          </div>
+
+          <label for="topic">What is this about? <span class="req" aria-hidden="true">*</span></label>
+          <select id="topic" name="Topic" required>
+            <option value="">Choose one…</option>
+            <option>Place an order</option>
+            <option>Ask for a quotation</option>
+            <option>Product or price question</option>
+            <option>Feedback</option>
+            <option>Something else</option>
+          </select>
+
+          <label for="message">Your message <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="message" name="Message" rows="5" maxlength="500" required minlength="10" placeholder="e.g. 2 × Mealie-meal 10kg, 1 × Cooking oil 2L. I will collect on Saturday."></textarea>
+
+          <button class="btn" type="submit">Send message</button>
+        </form>
+
+        <aside class="info-card tips" aria-labelledby="tips-title">
+          <span class="ic" aria-hidden="true">📝</span>
+          <h3 id="tips-title">For a faster reply</h3>
+          <ul>
+            <li>List each item with its size and quantity.</li>
+            <li>Say if you will <strong>collect</strong> or want <strong>delivery</strong>.</li>
+            <li>Tell us the day you need your groceries.</li>
+            <li>Add your phone number so we can confirm.</li>
+          </ul>
+          <p class="tip-note">Prices may change without prior notice. We confirm your final total before you pay.</p>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>&copy; 2026 FreshBasket Grocery Shop &middot; Contact</footer>
+
+</body>
+</html>
