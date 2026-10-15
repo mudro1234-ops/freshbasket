@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quotation | FreshBasket Grocery Shop</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="quotation-additions.css">
 </head>
 <body>
 
@@ -13,14 +12,25 @@
     <a class="logo" href="index.html">Fresh<span>Basket</span></a>
     <nav aria-label="Main">
       <a href="index.html">Home</a>
-      <a href="Products.html">Products</a>
+      <a href="products.html">Products</a>
       <a href="quotation.html" class="active" aria-current="page">Quotation</a>
+      <a href="prices.html">Prices</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main class="quote">
+    <!-- View switch: pure HTML + CSS. These two radio buttons control what the page shows. -->
+    <input type="radio" name="view" id="v-customer" class="vswitch" checked>
+    <input type="radio" name="view" id="v-seller" class="vswitch">
+
     <h1>Quotation</h1>
     <p class="sub">FreshBasket Grocery Shop</p>
+
+    <div class="toggle" role="group" aria-label="Choose view">
+      <label for="v-customer">Customer view</label>
+      <label for="v-seller">Seller view</label>
+    </div>
 
     <div class="card qhead">
       <div><strong>Quote number</strong><br>#FB-2026-0412</div>
@@ -40,21 +50,34 @@
               <th scope="col" class="right">Quantity</th>
               <th scope="col" class="right">Unit Price</th>
               <th scope="col" class="right">Line Total</th>
+              <th scope="col" class="right seller-only">Line Cost</th>
+              <th scope="col" class="right seller-only">Line Profit</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>1</td><td>Mealie-meal</td><td>10kg</td><td class="right">2</td><td class="right">$7.00</td><td class="right">$14.00</td></tr>
-            <tr><td>2</td><td>Cooking oil</td><td>2L</td><td class="right">1</td><td class="right">$4.50</td><td class="right">$4.50</td></tr>
-            <tr><td>3</td><td>Sugar</td><td>2kg</td><td class="right">3</td><td class="right">$2.50</td><td class="right">$7.50</td></tr>
-            <tr><td>4</td><td>Rice</td><td>2kg</td><td class="right">2</td><td class="right">$3.00</td><td class="right">$6.00</td></tr>
-            <tr><td>5</td><td>Potatoes</td><td>1kg</td><td class="right">5</td><td class="right">$1.20</td><td class="right">$6.00</td></tr>
+            <tr><td>1</td><td>Mealie-meal</td><td>10kg</td><td class="right">2</td><td class="right">$7.00</td><td class="right">$14.00</td><td class="right seller-only">$11.60</td><td class="right seller-only">$2.40</td></tr>
+            <tr><td>2</td><td>Cooking oil</td><td>2L</td><td class="right">1</td><td class="right">$4.50</td><td class="right">$4.50</td><td class="right seller-only">$3.60</td><td class="right seller-only">$0.90</td></tr>
+            <tr><td>3</td><td>Sugar</td><td>2kg</td><td class="right">3</td><td class="right">$2.50</td><td class="right">$7.50</td><td class="right seller-only">$5.70</td><td class="right seller-only">$1.80</td></tr>
+            <tr><td>4</td><td>Rice</td><td>2kg</td><td class="right">2</td><td class="right">$3.00</td><td class="right">$6.00</td><td class="right seller-only">$4.60</td><td class="right seller-only">$1.40</td></tr>
+            <tr><td>5</td><td>Potatoes</td><td>1kg</td><td class="right">5</td><td class="right">$1.20</td><td class="right">$6.00</td><td class="right seller-only">$4.00</td><td class="right seller-only">$2.00</td></tr>
           </tbody>
           <tfoot>
-            <tr class="total"><td colspan="5" class="right">GRAND TOTAL</td><td class="right">$38.00</td></tr>
+            <tr class="total"><td colspan="5" class="right">GRAND TOTAL</td><td class="right">$38.00</td><td class="right seller-only">$29.50</td><td class="right seller-only">$8.50</td></tr>
           </tfoot>
         </table>
       </div>
     </div>
+
+    <!-- Customer side only -->
+    <p class="customer-block">To place this order, visit the shop or use the <a href="contact.html">Contact page</a>.</p>
+
+    <!-- Seller side only -->
+    <div class="card qhead seller-block">
+      <div><strong>Total cost</strong><br>$29.50</div>
+      <div><strong>Total profit</strong><br>$8.50</div>
+      <div><strong>Profit margin</strong><br>22.4%</div>
+    </div>
+    <p class="seller-block sub">Seller view: internal only. Cost figures are sample values for this assignment and are never shown to customers.</p>
 
     <p class="notice" role="note"><strong>Prices may change without prior notice.</strong></p>
   </main>
