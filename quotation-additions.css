@@ -1,0 +1,7 @@
+
+/* ---------- 11. Quotation page (added by Wess) ---------- */
+.quote{font-family:Consolas,"Courier New",monospace}
+.quote th,.quote td{border:1px solid #9fb09f}
+.quote th.right,.quote td.right{text-align:right;font-variant-numeric:tabular-nums}
+.quote tfoot .total td{background:var(--green)!important;color:#fff;font-size:20px}
+.quote .notice{font-weight:bold}
