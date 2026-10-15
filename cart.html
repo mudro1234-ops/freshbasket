@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site-nav.css">
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+<nav class="topnav"><a href="index.html">HOME</a><a href="Products.html">PRODUCTS</a><a href="quotation.html">QUOTATION</a><a href="contact.html">CONTACT</a><a href="cart.html" class="on">CART</a></nav>
+<div class="container">
+  <div class="payment_details">
+    <h1>Payment Information</h1>
+    <div class="details_card">
+      <div class="name_address">
+        <div class="first_lastName">
+          <input type="text" id="first" placeholder="First Name" />
+          <input type="text" id="last" placeholder="Last Name" />
+        </div>
+        <div class="address">
+          <input type="text" onkeyup="change()" id="put" placeholder="Address" />
+          <input type="number" id="pin" placeholder="Pincode" />
+          <input type="text" id="country" placeholder="Country" />
+        </div>
+      </div>
+      <h1>Shipping Details</h1>
+      <div class="shipping_card">
+        <div class="new_card">
+          <h4>Same as personal</h4>
+          <p id="output">Lovely professional university , Phagwara, Punjab</p>
+          <p id="pinout">11411</p>
+        </div>
+      </div>
+      <div class="proced_payment">
+        <a href="#" id="pay">Procced to payment</a>
+        <a href="index.html" class="back">Continue shopping</a>
+      </div>
+      <p id="payMsg"></p>
+    </div>
+  </div>
+
+  <div class="order_summary">
+    <h1>Order Summary</h1>
+    <div class="summary_card">
+      <div id="items"></div>
+      <hr />
+      <div class="order_price"><p>Order summary</p><h4 id="subtotal">$0</h4></div>
+      <div class="order_service"><p>Additional Service</p><h4 id="service">$10</h4></div>
+      <div class="order_total"><p>Total Amount</p><h4 id="total">$0</h4></div>
+    </div>
+  </div>
+</div>
+
+<script src="cart.js"></script>
+<script>
+  var SERVICE = 10;
+  var items = Cart.read();
+
+  function render() {
+    var box = document.getElementById('items');
+    box.innerHTML = '';
+    if (!items.length) {
+      box.innerHTML = '<p class="empty">Your cart is empty.</p>';
+    }
+    var sub = 0;
+    items.forEach(function (it, idx) {
+      sub += it.price * it.qty;
+      var d = document.createElement('div');
+      d.className = 'card_item';
+      d.innerHTML =
+        '<div class="product_img"><img src="' + it.img + '.jpg" onerror="this.onerror=null;this.src=\'' + it.img + '.svg\'" alt=""></div>' +
+        '<div class="product_info">' +
+          '<h1></h1><p></p>' +
+          '<div class="close-btn" title="Remove"><i class="fa fa-close"></i></div>' +
+          '<div class="product_rate_info"><h1>$ ' + it.price + '</h1>' +
+            '<span class="pqt-minus">-</span><span class="pqt">' + it.qty + '</span><span class="pqt-plus">+</span>' +
+          '</div>' +
+        '</div>';
+      d.querySelector('h1').textContent = it.name;
+      d.querySelector('p').textContent = it.code || '';
+      d.querySelector('.pqt-minus').onclick = function () { if (it.qty > 1) it.qty--; save(); };
+      d.querySelector('.pqt-plus').onclick = function () { it.qty++; save(); };
+      d.querySelector('.close-btn').onclick = function () { items.splice(idx, 1); save(); };
+      box.appendChild(d);
+    });
+    var svc = items.length ? SERVICE : 0;
+    document.getElementById('subtotal').textContent = '$' + sub;
+    document.getElementById('service').textContent = '$' + svc;
+    document.getElementById('total').textContent = '$' + (sub + svc);
+  }
+  function save() { Cart.write(items); render(); }
+
+  // Shipping box mirrors the address fields as you type
+  function change() {
+    var v = document.getElementById('put').value;
+    document.getElementById('output').textContent = v || 'Lovely professional university , Phagwara, Punjab';
+  }
+  document.getElementById('pin').addEventListener('input', function (e) {
+    document.getElementById('pinout').textContent = e.target.value || '11411';
+  });
+
+  document.getElementById('pay').addEventListener('click', function (ev) {
+    ev.preventDefault();
+    var m = document.getElementById('payMsg');
+    if (!items.length) { m.textContent = 'Your cart is empty.'; return; }
+    if (!document.getElementById('first').value.trim() || !document.getElementById('put').value.trim()) {
+      m.textContent = 'Please enter at least your first name and address.'; return;
+    }
+    m.textContent = 'Order placed (demo, no real payment). Thank you!';
+    items = []; save();
+  });
+
+  render();
+</script>
+</body>
+</html>
