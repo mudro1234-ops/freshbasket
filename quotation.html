@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Quotation | E STORE</title>
+  <link rel="stylesheet" href="site-nav.css" />
+  <link rel="stylesheet" href="Products.css" />
+  <link rel="stylesheet" href="quotation-additions.css" />
+</head>
+<body>
+  <nav class="topnav"><a href="index.html">HOME</a><a href="Products.html">PRODUCTS</a><a href="quotation.html" class="on">QUOTATION</a><a href="contact.html">CONTACT</a><a href="cart.html">CART</a></nav>
+  <header class="phead"><h1>Price <span>Quotation</span></h1><p>Built from the items in your cart. Change quantities, then print or save it.</p></header>
+
+  <main class="qmain">
+    <section class="qbox">
+      <h2>Customer details</h2>
+      <div class="qrow">
+        <input id="qname" placeholder="Full name" />
+        <input id="qphone" placeholder="Phone number" />
+      </div>
+      <input id="qaddr" placeholder="Delivery address" />
+    </section>
+
+    <section class="qbox">
+      <div class="qhead">
+        <h2>Your quote <small id="qno"></small></h2>
+        <div class="switcher">
+          <button class="vbtn on" data-view="table">Table view</button>
+          <button class="vbtn" data-view="cards">Card view</button>
+        </div>
+      </div>
+      <div id="qlist" class="view-table"></div>
+      <div class="qtotals">
+        <div><span>Subtotal</span><b id="qsub">$0</b></div>
+        <div><span>Delivery / service</span><b id="qsvc">$10</b></div>
+        <div class="grand"><span>Total</span><b id="qtot">$0</b></div>
+      </div>
+      <p class="qnote">Quote valid for 7 days. Prices may change without notice.</p>
+      <div class="qactions">
+        <button class="add solid" id="qprint">Print / Save as PDF</button>
+        <a class="add" href="Products.html">Add more items</a>
+        <a class="add" href="cart.html">Go to cart</a>
+      </div>
+    </section>
+  </main>
+  <footer class="pfoot">© E STORE · <a href="contact.html">Contact us</a></footer>
+
+  <script src="cart.js"></script>
+  <script>
+    var items=Cart.read(),SVC=10;
+    var n=new Date();document.getElementById('qno').textContent='#Q'+n.getFullYear()+(n.getMonth()+1)+n.getDate()+' · '+n.toLocaleDateString();
+    function save(){Cart.write(items);render();}
+    function render(){
+      var box=document.getElementById('qlist');box.innerHTML='';
+      var sub=0;
+      if(!items.length)box.innerHTML='<p class="empty">No items yet. <a href="Products.html">Browse products</a>.</p>';
+      var html='<div class="qitems">';
+      items.forEach(function(it,i){
+        var line=it.price*it.qty;sub+=line;
+        var d=document.createElement('div');d.className='qitem';
+        d.innerHTML='<div class="qimg"><img src="'+it.img+'.jpg" onerror="this.onerror=null;this.src=\''+it.img+'.svg\'" alt=""></div>'+
+          '<div class="qname"></div><div class="qprice">$ '+it.price+'</div>'+
+          '<div class="qty"><button>-</button><span>'+it.qty+'</span><button>+</button></div>'+
+          '<div class="qline">$ '+line+'</div><button class="qdel" title="Remove">×</button>';
+        d.querySelector('.qname').textContent=it.name;
+        var b=d.querySelectorAll('.qty button');
+        b[0].onclick=function(){if(it.qty>1)it.qty--;save();};
+        b[1].onclick=function(){it.qty++;save();};
+        d.querySelector('.qdel').onclick=function(){items.splice(i,1);save();};
+        box.appendChild(d);
+      });
+      var svc=items.length?SVC:0;
+      document.getElementById('qsub').textContent='$'+sub;
+      document.getElementById('qsvc').textContent='$'+svc;
+      document.getElementById('qtot').textContent='$'+(sub+svc);
+    }
+    document.querySelectorAll('.vbtn').forEach(function(b){b.onclick=function(){
+      document.querySelectorAll('.vbtn').forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+      document.getElementById('qlist').className='view-'+b.dataset.view;};});
+    document.getElementById('qprint').onclick=function(){window.print();};
+    render();
+  </script>
+</body>
+</html>
