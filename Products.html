@@ -1,51 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products | FreshBasket Grocery Shop</title>
-<link rel="stylesheet" href="Products.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Products | E STORE</title>
+  <link rel="stylesheet" href="site-nav.css" />
+  <link rel="stylesheet" href="Products.css" />
 </head>
 <body>
-
-<header>
-  <a class="logo" href="index.html">Fresh<span>Basket</span></a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a class="active" href="Products.html">Products</a>
-    <a href="quotation.html">Quotation</a>
-    <a href="quotation.html">Price Updates</a>
-    <a href="FreshBasket.html#contact">Contact</a>
-  </nav>
-</header>
-
-<section id="products" class="alt">
-  <div class="inner">
-    <h2>Our Groceries</h2>
-    <p class="sub">Current sample prices in US dollars. Choose Order to see a quotation.</p>
-
-    <div class="grid">
-      <article class="product"><span class="icon">🌽</span><h3>Mealie-meal</h3><p class="unit">10 kg bag</p><div class="price">$7.00</div><br><a class="btn" href="quotation.html">Order</a></article>
-      <article class="product"><span class="icon">🛢️</span><h3>Cooking Oil</h3><p class="unit">2 litres</p><div class="price">$4.50</div><br><a class="btn" href="quotation.html">Order</a></article>
-      <article class="product"><span class="icon">🍬</span><h3>Sugar</h3><p class="unit">2 kg pack</p><div class="price">$2.50</div><br><a class="btn" href="quotation.html">Order</a></article>
-      <article class="product"><span class="icon">🍚</span><h3>Rice</h3><p class="unit">2 kg pack</p><div class="price">$3.00</div><br><a class="btn" href="quotation.html">Order</a></article>
-      <article class="product"><span class="icon">🥔</span><h3>Potatoes</h3><p class="unit">1 kg</p><div class="price">$1.20</div><br><a class="btn" href="quotation.html">Order</a></article>
-      <article class="product"><span class="icon">🌾</span><h3>Flour</h3><p class="unit">2 kg pack</p><div class="price">$2.20</div><br><a class="btn" href="quotation.html">Order</a></article>
-      <article class="product"><span class="icon">🍅</span><h3>Tomatoes</h3><p class="unit">1 kg</p><div class="price">$1.50</div><br><a class="btn" href="quotation.html">Order</a></article>
-      <article class="product"><span class="icon">🧅</span><h3>Onions</h3><p class="unit">1 kg</p><div class="price">$1.30</div><br><a class="btn" href="quotation.html">Order</a></article>
-      <article class="product"><span class="icon">🍞</span><h3>Bread</h3><p class="unit">1 loaf</p><div class="price">$1.00</div><br><a class="btn" href="quotation.html">Order</a></article>
-      <article class="product"><span class="icon">🥛</span><h3>Milk</h3><p class="unit">1 litre</p><div class="price">$1.40</div><br><a class="btn" href="quotation.html">Order</a></article>
-      <article class="product"><span class="icon">🥚</span><h3>Eggs</h3><p class="unit">Tray of 30</p><div class="price">$5.00</div><br><a class="btn" href="quotation.html">Order</a></article>
-      <article class="product"><span class="icon">🧂</span><h3>Salt</h3><p class="unit">1 kg</p><div class="price">$0.70</div><br><a class="btn" href="quotation.html">Order</a></article>
+  <nav class="topnav"><a href="index.html">HOME</a><a href="Products.html" class="on">PRODUCTS</a><a href="quotation.html">QUOTATION</a><a href="contact.html">CONTACT</a><a href="cart.html">CART (<span id="cartCount">0</span>)</a></nav>
+  <header class="phead"><h1>Our <span>Products</span></h1><p>Add items to your cart, then get a <a href="quotation.html">quotation</a> or <a href="cart.html">check out</a>.</p></header>
+  <main class="pmain">
+    <h2 class="cat">Clothing</h2>
+    <div class="pgrid">
+      <article class="pcard">
+        <!-- ADD PIC HERE: image/jackets.jpg -->
+        <div class="pimg"><img src="image/jackets.jpg" onerror="this.onerror=null;this.src='image/jackets.svg'" alt="Jacket (green puffer)" /></div>
+        <h3>Jacket (green puffer)</h3>
+        <div class="pprice">₹ 5,000</div>
+        <button class="add" data-id="jackets" data-name="JACKET (GREEN PUFFER)" data-price="5000" data-img="image/jackets">Add to cart</button>
+      </article>
+      <article class="pcard">
+        <!-- ADD PIC HERE: image/hoddy.jpg -->
+        <div class="pimg"><img src="image/hoddy.jpg" onerror="this.onerror=null;this.src='image/hoddy.svg'" alt="Hoodie" /></div>
+        <h3>Hoodie</h3>
+        <div class="pprice">₹ 8,500</div>
+        <button class="add" data-id="hoddy" data-name="HOODIE" data-price="8500" data-img="image/hoddy">Add to cart</button>
+      </article>
+      <article class="pcard">
+        <!-- ADD PIC HERE: image/t shirt.jpg -->
+        <div class="pimg"><img src="image/t shirt.jpg" onerror="this.onerror=null;this.src='image/t shirt.svg'" alt="T-shirt" /></div>
+        <h3>T-shirt</h3>
+        <div class="pprice">₹ 5,000</div>
+        <button class="add" data-id="t-shirt" data-name="T-SHIRT" data-price="5000" data-img="image/t shirt">Add to cart</button>
+      </article>
     </div>
-
-    <div class="notice">These are sample prices for a prototype, not real market prices.</div>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2026 FreshBasket Grocery Shop | HTML and CSS prototype</p>
-</footer>
-
+    <h2 class="cat">Bags & Accessories</h2>
+    <div class="pgrid">
+      <article class="pcard">
+        <!-- ADD PIC HERE: image/WHBag.jpg -->
+        <div class="pimg"><img src="image/WHBag.jpg" onerror="this.onerror=null;this.src='image/WHBag.svg'" alt="Women Hand Bag" /></div>
+        <h3>Women Hand Bag</h3>
+        <div class="pprice">₹ 3,000</div>
+        <button class="add" data-id="WHBag" data-name="WOMEN HAND BAG" data-price="3000" data-img="image/WHBag">Add to cart</button>
+      </article>
+      <article class="pcard">
+        <!-- ADD PIC HERE: image/garic fox.jpg -->
+        <div class="pimg"><img src="image/garic fox.jpg" onerror="this.onerror=null;this.src='image/garic fox.svg'" alt="Arctic Fox bag" /></div>
+        <h3>Arctic Fox bag</h3>
+        <div class="pprice">₹ 2,000</div>
+        <button class="add" data-id="garic-fox" data-name="ARCTIC FOX BAG" data-price="2000" data-img="image/garic fox">Add to cart</button>
+      </article>
+      <article class="pcard">
+        <!-- ADD PIC HERE: image/wallet.jpg -->
+        <div class="pimg"><img src="image/wallet.jpg" onerror="this.onerror=null;this.src='image/wallet.svg'" alt="Women Hand Bag (purple)" /></div>
+        <h3>Women Hand Bag (purple)</h3>
+        <div class="pprice">₹ 1,600</div>
+        <button class="add" data-id="wallet" data-name="WOMEN HAND BAG (PURPLE)" data-price="1600" data-img="image/wallet">Add to cart</button>
+      </article>
+      <article class="pcard">
+        <!-- ADD PIC HERE: image/belt.jpg -->
+        <div class="pimg"><img src="image/belt.jpg" onerror="this.onerror=null;this.src='image/belt.svg'" alt="Belt" /></div>
+        <h3>Belt</h3>
+        <div class="pprice">₹ 500</div>
+        <button class="add" data-id="belt" data-name="BELT" data-price="500" data-img="image/belt">Add to cart</button>
+      </article>
+    </div>
+    <h2 class="cat">Footwear</h2>
+    <div class="pgrid">
+      <article class="pcard">
+        <!-- ADD PIC HERE: image/shoes.jpg -->
+        <div class="pimg"><img src="image/shoes.jpg" onerror="this.onerror=null;this.src='image/shoes.svg'" alt="Sports Shoes" /></div>
+        <h3>Sports Shoes</h3>
+        <div class="pprice">₹ 3,200</div>
+        <button class="add" data-id="shoes" data-name="SPORTS SHOES" data-price="3200" data-img="image/shoes">Add to cart</button>
+      </article>
+      <article class="pcard">
+        <!-- ADD PIC HERE: image/women sandal.jpg -->
+        <div class="pimg"><img src="image/women sandal.jpg" onerror="this.onerror=null;this.src='image/women sandal.svg'" alt="Sandals" /></div>
+        <h3>Sandals</h3>
+        <div class="pprice">₹ 600</div>
+        <button class="add" data-id="women-sandal" data-name="SANDALS" data-price="600" data-img="image/women sandal">Add to cart</button>
+      </article>
+    </div>
+    <h2 class="cat">Electronics</h2>
+    <div class="pgrid">
+      <article class="pcard">
+        <!-- ADD PIC HERE: image/headphone.jpg -->
+        <div class="pimg"><img src="image/headphone.jpg" onerror="this.onerror=null;this.src='image/headphone.svg'" alt="Boat Headphones" /></div>
+        <h3>Boat Headphones</h3>
+        <div class="pprice">₹ 1,500</div>
+        <button class="add" data-id="headphone" data-name="BOAT HEADPHONES" data-price="1500" data-img="image/headphone">Add to cart</button>
+      </article>
+      <article class="pcard">
+        <!-- ADD PIC HERE: image/smartphone.jpg -->
+        <div class="pimg"><img src="image/smartphone.jpg" onerror="this.onerror=null;this.src='image/smartphone.svg'" alt="Smartphone" /></div>
+        <h3>Smartphone</h3>
+        <div class="pprice">₹ 12,000</div>
+        <button class="add" data-id="smartphone" data-name="SMARTPHONE" data-price="12000" data-img="image/smartphone">Add to cart</button>
+      </article>
+    </div>
+    <h2 class="cat">Home</h2>
+    <div class="pgrid">
+      <article class="pcard">
+        <!-- ADD PIC HERE: image/milton.jpg -->
+        <div class="pimg"><img src="image/milton.jpg" onerror="this.onerror=null;this.src='image/milton.svg'" alt="Milton Bottle" /></div>
+        <h3>Milton Bottle</h3>
+        <div class="pprice">₹ 1,200</div>
+        <button class="add" data-id="milton" data-name="MILTON BOTTLE" data-price="1200" data-img="image/milton">Add to cart</button>
+      </article>
+    </div>
+  </main>
+  <footer class="pfoot">© E STORE · <a href="contact.html">Contact us</a></footer>
+  <div id="toast"></div>
+  <script src="cart.js"></script>
+  <script>
+    function refresh(){var e=document.getElementById('cartCount');if(e)e.textContent=Cart.count();}
+    refresh();
+    var toast=document.getElementById('toast');
+    document.querySelectorAll('.add').forEach(function(b){b.addEventListener('click',function(){
+      Cart.add({id:b.dataset.id,name:b.dataset.name,code:'E STORE',price:Number(b.dataset.price),img:b.dataset.img});
+      refresh();toast.textContent=b.dataset.name+' added to cart';toast.classList.add('show');
+      setTimeout(function(){toast.classList.remove('show')},1400);});});
+  </script>
 </body>
 </html>

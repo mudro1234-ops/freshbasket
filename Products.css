@@ -1,43 +1,19 @@
-:root{
-  --green:#176b3a; --dark:#0f4c2a; --light:#e3f2e1; --grey:#f4f6f3;
-  --line:#d9e2d6; --text:#233326; --muted:#5f6f63; --gold:#f2b705;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--grey);color:var(--text);line-height:1.5}
-a{color:var(--green)}
-
-/* Sticky header + navigation */
-header{position:sticky;top:0;z-index:10;background:var(--green);color:#fff;padding:12px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.logo{font-size:24px;font-weight:bold;color:#fff;text-decoration:none}
-.logo span{color:var(--gold)}
-nav{display:flex;flex-wrap:wrap;gap:4px}
-nav a{color:#fff;text-decoration:none;padding:8px 14px;border-radius:20px;font-size:15px}
-nav a:hover,nav a.active{background:rgba(255,255,255,.2)}
-
-/* Layout */
-section{padding:50px 6%}
-.inner{max-width:1000px;margin:0 auto}
-h2{color:var(--dark);margin-top:0;font-size:30px}
-.sub{color:var(--muted);margin-top:-8px}
-.alt{background:#fff}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:20px}
-
-/* Buttons and notices */
-.btn{display:inline-block;background:var(--green);color:#fff;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:bold;border:0;font-size:16px;cursor:pointer}
-.btn:hover{background:var(--dark)}
-.notice{background:#fff8dc;border-left:5px solid var(--gold);padding:12px 16px;border-radius:6px;margin:20px 0}
-
-/* Products */
-.icon{font-size:44px;display:block;margin-bottom:6px}
-.product{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.05)}
-.product h3{margin:6px 0 2px}
-.unit{color:var(--muted);margin:0}
-.price{display:inline-block;background:var(--gold);color:#2a2000;font-weight:bold;font-size:20px;padding:4px 14px;border-radius:6px 14px 14px 6px;margin:12px 0}
-
-footer{text-align:center;background:var(--dark);color:#fff;padding:20px}
-
-@media (max-width:600px){
-  header{flex-direction:column;text-align:center}
-  section{padding:36px 5%}
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:whitesmoke;color:#111}
+.phead{text-align:center;padding:50px 16px 10px}
+.phead h1{font-size:40px;font-weight:400}.phead h1 span{color:#ff4321}
+.phead p{color:#666;margin-top:8px}.phead a{color:#ff4321}
+.pmain{max-width:1200px;margin:0 auto;padding:10px 24px 60px}
+.cat{margin:40px 0 18px;font-weight:600;border-left:5px solid #ff4321;padding-left:12px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
+.pcard{background:#fff;border-radius:10px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:box-shadow .3s,transform .3s}
+.pcard:hover{box-shadow:0 8px 20px rgba(0,0,0,.12);transform:translateY(-3px)}
+.pimg{aspect-ratio:1;overflow:hidden;border-radius:8px;background:#fafafa}
+.pimg img{width:100%;height:100%;object-fit:contain}
+.pcard h3{font-size:16px;font-weight:600;margin:12px 0 4px}
+.pprice{color:#555;margin-bottom:10px}
+.add{border:2px solid #ff4321;background:transparent;color:#ff4321;border-radius:40px;padding:6px 22px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:.2s}
+.add:hover{background:#ff4321;color:#fff}
+.pfoot{background:#000;color:#fff;text-align:center;padding:24px;font-size:14px}.pfoot a{color:#fff}
+#toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,80px);background:#111;color:#fff;padding:12px 22px;border-radius:30px;opacity:0;transition:.3s;z-index:10;font-size:15px}
+#toast.show{opacity:1;transform:translate(-50%,0)}

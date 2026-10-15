@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login.shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    html, body { display: grid; height: 100%; width: 100%; place-items: center;
+      background: linear-gradient(135deg, #bfe6f7 0%, #e6f1ff 40%, #ffd1ec 75%, #ffc6a8 100%); }
+    .art { position: fixed; left: 6%; top: 50%; transform: translateY(-50%); width: 34vw; max-width: 460px; z-index: 0; }
+    ::selection { background: #438ab6; color: rgb(237, 231, 231); }
+    .wrapper { width: 380px; max-width: 92vw; background: rgb(252, 252, 250); border-radius: 20px;
+      box-shadow: 0px 15px 20px rgba(58, 9, 9, 0.1); position: relative; z-index: 1; }
+    .wrapper .title { font-size: 35px; font-weight: 600; font-style: oblique; text-align: center; line-height: 100px;
+      color: rgb(248, 245, 245); user-select: none; border-radius: 15px 15px 0 0;
+      background: linear-gradient(-135deg, #1842c2, #0cba9a); }
+    .wrapper form { padding: 10px 30px 50px 30px; }
+    .wrapper form .field { height: 50px; width: 100%; margin-top: 20px; position: relative; }
+    .wrapper form .field input { height: 100%; width: 100%; outline: none; font-size: 17px; padding-left: 20px;
+      border: 1px solid lightgrey; border-radius: 25px; transition: all 0.3s ease; }
+    .wrapper form .field input:focus, form .field input:valid { border-color: #4158d0; }
+    .wrapper form .field label { position: absolute; top: 50%; left: 20px; color: #999999; font-weight: 400; font-size: 17px;
+      pointer-events: none; transform: translateY(-50%); transition: all 0.3s ease; }
+    form .field input:focus ~ label, form .field input:valid ~ label { top: 0%; font-size: 16px; color: #4158d0;
+      background: #fff; transform: translateY(-50%); padding: 0 4px; left: 16px; }
+    form .content { display: flex; width: 100%; height: 50px; font-size: 16px; align-items: center; justify-content: space-around; }
+    form .content .checkbox { display: flex; align-items: center; justify-content: center; }
+    form .content input { width: 15px; height: 15px; background: red; }
+    form .content label { color: #262626; user-select: none; padding-left: 5px; }
+    form .content .pass-link a, form .signup-link a { color: #4158d0; text-decoration: none; }
+    form .content .pass-link a:hover, form .signup-link a:hover { text-decoration: underline; }
+    form .field input[type="submit"] { color: #fff; border: none; padding-left: 0; margin-top: -10px; font-size: 20px; font-weight: 500;
+      cursor: pointer; background: linear-gradient(-135deg, #c850c0, #4158d0); transition: all 0.3s ease; }
+    form .field input[type="submit"]:active { transform: scale(0.95); }
+    form .signup-link { color: #262626; margin-top: 20px; text-align: center; }
+    .msg { margin-top: 14px; text-align: center; font-size: 15px; min-height: 20px; color: #c0392b; }
+    .msg.ok { color: #1a8f5a; }
+    @media (max-width: 900px) { .art { display: none; } }
+  </style>
+</head>
+<body>
+  <!-- ADD PIC HERE: image/cart-art.jpg (login side picture) -->
+  <img class="art" src="image/cart-art.jpg" onerror="this.onerror=null;this.src='image/cart-art.svg'" alt="" />
+  <div class="wrapper">
+    <div class="title"><span>Login Form</span></div>
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <input type="text" id="email" required>
+        <label>Email Address</label>
+      </div>
+      <div class="field">
+        <input type="password" id="password" required>
+        <label>Password</label>
+      </div>
+      <div class="content">
+        <div class="checkbox">
+          <input type="checkbox" id="remember-me">
+          <label for="remember-me">Remember me</label>
+        </div>
+        <div class="pass-link"><a href="#" id="forgot">Forgot password?</a></div>
+      </div>
+      <div class="field">
+        <input type="submit" value="Login">
+      </div>
+      <div class="signup-link">Not a member? <a href="#" id="signup">Signup now</a></div>
+      <div class="msg" id="msg"></div>
+    </form>
+  </div>
+
+  <script>
+    // Demo accounts live in this browser only (localStorage). A demo user is pre-created so login works straight away.
+    var msg = document.getElementById('msg');
+    function say(t, ok) { msg.textContent = t; msg.className = 'msg' + (ok ? ' ok' : ''); }
+    function users() { try { return JSON.parse(localStorage.getItem('shopUsers')) || { 'demo@shop.com': 'demo123' }; } catch (e) { return { 'demo@shop.com': 'demo123' }; } }
+    function saveUsers(u) { try { localStorage.setItem('shopUsers', JSON.stringify(u)); } catch (e) {} }
+    function creds() { return { e: document.getElementById('email').value.trim().toLowerCase(), p: document.getElementById('password').value }; }
+    function valid(c) {
+      if (!/^\S+@\S+\.\S+$/.test(c.e)) { say('Enter a valid email address.'); return false; }
+      if (c.p.length < 4) { say('Password must be at least 4 characters.'); return false; }
+      return true;
+    }
+    document.getElementById('loginForm').addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var c = creds(); if (!valid(c)) return;
+      var u = users();
+      if (u[c.e] === c.p) {
+        try { (document.getElementById('remember-me').checked ? localStorage : sessionStorage).setItem('shopUser', c.e); } catch (e) {}
+        say('Welcome back! Redirecting…', true);
+        setTimeout(function () { location.href = 'index.html'; }, 600);
+      } else { say('Wrong email or password. (Demo: demo@shop.com / demo123)'); }
+    });
+    document.getElementById('signup').addEventListener('click', function (ev) {
+      ev.preventDefault();
+      var c = creds(); if (!valid(c)) return;
+      var u = users();
+      if (u[c.e]) { say('That email is already registered. Just log in.'); return; }
+      u[c.e] = c.p; saveUsers(u); say('Account created. Now press Login.', true);
+    });
+    document.getElementById('forgot').addEventListener('click', function (ev) {
+      ev.preventDefault();
+      say('Demo site: use demo@shop.com / demo123, or sign up a new account.', true);
+    });
+  </script>
+</body>
+</html>
